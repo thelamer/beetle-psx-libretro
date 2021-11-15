@@ -355,7 +355,8 @@ ifeq ($(HAVE_CHD), 1)
       SOURCES_C += $(LIBCHDR_SOURCES_C)
    endif
 
-   SOURCES_CXX += $(CDROM_DIR)/CDAccess_CHD.cpp
+   SOURCES_CXX += $(CDROM_DIR)/CDAccess_CHD.cpp 
+
 endif ## ifeq ($(HAVE_CHD), 1)
 
 ifeq ($(HAVE_LIGHTREC), 1)

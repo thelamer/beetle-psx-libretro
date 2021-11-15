@@ -5,7 +5,7 @@
 #include "pgxp_gte.h"
 #include "pgxp_value.h"
 
-PGXP_value Mem[3 * 2048 * 1024 / 4];		// mirror 2MB in 32-bit words * 3
+PGXP_value Mem[64];		// mirror 2MB in 32-bit words * 3
 const u32 UserMemOffset = 0;
 const u32 ScratchOffset = 2048 * 1024 / 4;
 const u32 RegisterOffset = 2 * 2048 * 1024 / 4;
