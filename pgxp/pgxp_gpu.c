@@ -73,7 +73,7 @@ const unsigned int mode_write = 1;
 const unsigned int mode_read = 2;
 const unsigned int mode_fail = 3;
 
-PGXP_value vertexCache[0x800 * 2][0x800 * 2];
+PGXP_value vertexCache[0x800];
 
 unsigned int baseID = 0;
 unsigned int lastID = 0;
@@ -125,7 +125,7 @@ void PGXP_CacheVertex(short sx, short sy, const PGXP_value* _pVertex)
 		if (sx >= -0x800 && sx <= 0x7ff &&
 			sy >= -0x800 && sy <= 0x7ff)
 		{
-			pOldVertex = &vertexCache[sy + 0x800][sx + 0x800];
+			pOldVertex = &vertexCache[sy + 0x800];
 
 			// To avoid ambiguity there can only be one valid entry per-session
 			if (0)//(IsSessionID(pOldVertex->count) && (pOldVertex->value == pNewVertex->value))
@@ -169,7 +169,7 @@ PGXP_value* PGXP_GetCachedVertex(short sx, short sy)
 			sy >= -0x800 && sy <= 0x7ff)
 		{
 			// Return pointer to cache entry
-			return &vertexCache[sy + 0x800][sx + 0x800];
+			return &vertexCache[sy + 0x800];
 		}
 	}
 

@@ -613,7 +613,6 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       },
       NULL
    },
-#ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
       "Metodo Accesso CD (necessita riavvio)",
@@ -629,7 +628,6 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       },
       NULL
    },
-#endif
    {
       BEETLE_OPT(cd_fastload),
       "Velocità Caricamento CD",

@@ -734,6 +734,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       },
       "1"
    },
+#ifndef EMSCRIPTEN
    {
       BEETLE_OPT(pgxp_mode),
       "PGXP Operation Mode",
@@ -814,6 +815,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       },
       "disabled"
    },
+#endif
 #endif
    {
       BEETLE_OPT(line_render),
@@ -1535,7 +1537,6 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       },
       "287"
    },
-#ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
       "CD Access Method (Restart)",
@@ -1551,7 +1552,6 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       },
       "sync"
    },
-#endif
    {
       BEETLE_OPT(cd_fastload),
       "CD Loading Speed",

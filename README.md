@@ -1,3 +1,8 @@
+# TheLamer Notes
+It is basically impossible to pull out PGXP so this fork just assigns an unusable amount of cache and memory to it so it does not bloat up the resulting emscripten file. It is also removed from the menu options so it cannot be enabled. We also modify the code to not enable memory cache CD loading and use sync as the prior essentially triples the game memory consumption instead of just double. The game is run from a memfs anyway in the browser. 
+
+Because the purpose of this build is focusing on memory reduction to enable xbox Edge browser to load games this is also built with the frontend set to `MEMORY ?= 16777216` in `Makefile.emscripten`. This allows chd's with about 450 megs to boot.
+
 [![Build Status](https://travis-ci.org/libretro/beetle-psx-libretro.svg?branch=master)](https://travis-ci.org/libretro/beetle-psx-libretro)
 [![Build status](https://ci.appveyor.com/api/projects/status/qd1ew088woadbqhc/branch/master?svg=true)](https://ci.appveyor.com/project/bparker06/beetle-psx-libretro/branch/master)
 

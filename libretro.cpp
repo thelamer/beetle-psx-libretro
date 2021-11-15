@@ -3124,12 +3124,7 @@ bool retro_load_game_special(unsigned, const struct retro_game_info *, size_t)
    return false;
 }
 
-#ifdef EMSCRIPTEN
 static bool cdimagecache = true;
-#else
-static bool cdimagecache = false;
-#endif
-
 static bool boot = true;
 
 // shared memory cards support
@@ -3144,7 +3139,6 @@ static void check_variables(bool startup)
 {
    struct retro_variable var = {0};
 
-#ifndef EMSCRIPTEN
    var.key = BEETLE_OPT(cd_access_method);
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
@@ -3164,8 +3158,6 @@ static void check_variables(bool startup)
          cd_async = false;
       }
    }
-#endif
-
 #ifdef HAVE_LIGHTREC
    var.key = BEETLE_OPT(cpu_dynarec);
 
@@ -3513,6 +3505,7 @@ static void check_variables(bool startup)
    else
       psx_gpu_dither_mode = DITHER_NATIVE;
 
+#ifndef EMSCRIPTEN
    // iCB: PGXP settings
    var.key = BEETLE_OPT(pgxp_mode);
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
@@ -3571,7 +3564,7 @@ static void check_variables(bool startup)
    }
    else
       psx_pgxp_nclip = PGXP_MODE_NONE;
-
+#endif
    var.key = BEETLE_OPT(line_render);
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
